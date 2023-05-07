@@ -16,13 +16,13 @@ resource "aws_lb_target_group" "this" {
   vpc_id      = var.vpc_id
 
   health_check {
-    interval            = 6
+    interval            = var.lb_healthcheck_interval
     path                = var.lb_healthcheck_path
     protocol            = "HTTP"
-    timeout             = 5
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    matcher             = "200-204"
+    timeout             = var.lb_healthcheck_timeout
+    healthy_threshold   = var.lb_healthcheck_healthy_threshold
+    unhealthy_threshold = var.lb_healthcheck_unhealthy_threshold
+    matcher             = var.lb_healthcheck_matcher
   }
 
   lifecycle {
