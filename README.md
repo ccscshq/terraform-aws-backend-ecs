@@ -61,7 +61,12 @@ No modules.
 | <a name="input_ecs_task_policy_arns"></a> [ecs\_task\_policy\_arns](#input\_ecs\_task\_policy\_arns) | IAM policy arns for ecs task role. | `set(string)` | `[]` | no |
 | <a name="input_hosted_zone_domain"></a> [hosted\_zone\_domain](#input\_hosted\_zone\_domain) | Domain name to use for the Route53 hosted zone. | `string` | n/a | yes |
 | <a name="input_lb_delete_protection"></a> [lb\_delete\_protection](#input\_lb\_delete\_protection) | ALB delete protection. | `bool` | `true` | no |
+| <a name="input_lb_healthcheck_healthy_threshold"></a> [lb\_healthcheck\_healthy\_threshold](#input\_lb\_healthcheck\_healthy\_threshold) | Number of consecutive health check successes required before considering a target healthy. The range is 2-10. | `number` | `2` | no |
+| <a name="input_lb_healthcheck_interval"></a> [lb\_healthcheck\_interval](#input\_lb\_healthcheck\_interval) | Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. | `number` | `30` | no |
+| <a name="input_lb_healthcheck_matcher"></a> [lb\_healthcheck\_matcher](#input\_lb\_healthcheck\_matcher) | Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). | `string` | `"200-204"` | no |
 | <a name="input_lb_healthcheck_path"></a> [lb\_healthcheck\_path](#input\_lb\_healthcheck\_path) | Path for ALB health check. | `string` | `"/"` | no |
+| <a name="input_lb_healthcheck_timeout"></a> [lb\_healthcheck\_timeout](#input\_lb\_healthcheck\_timeout) | Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. | `number` | `3` | no |
+| <a name="input_lb_healthcheck_unhealthy_threshold"></a> [lb\_healthcheck\_unhealthy\_threshold](#input\_lb\_healthcheck\_unhealthy\_threshold) | Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. | `number` | `5` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Name prefix for resources. | `string` | n/a | yes |
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | IDs of the private subnet. | `set(string)` | n/a | yes |
 | <a name="input_public_subnet_ids"></a> [public\_subnet\_ids](#input\_public\_subnet\_ids) | IDs of the public subnet. | `set(string)` | n/a | yes |

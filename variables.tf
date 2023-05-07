@@ -57,10 +57,35 @@ variable "ecs_cpu_architecture" {
 }
 
 # lb
+variable "lb_healthcheck_interval" {
+  description = "Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300."
+  type        = number
+  default     = 30
+}
 variable "lb_healthcheck_path" {
   description = "Path for ALB health check."
   type        = string
   default     = "/"
+}
+variable "lb_healthcheck_timeout" {
+  description = "Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds."
+  type        = number
+  default     = 3
+}
+variable "lb_healthcheck_healthy_threshold" {
+  description = "Number of consecutive health check successes required before considering a target healthy. The range is 2-10."
+  type        = number
+  default     = 2
+}
+variable "lb_healthcheck_unhealthy_threshold" {
+  description = "Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10."
+  type        = number
+  default     = 5
+}
+variable "lb_healthcheck_matcher" {
+  description = "Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\")."
+  type        = string
+  default     = "200-204"
 }
 variable "lb_delete_protection" {
   description = "ALB delete protection."

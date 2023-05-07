@@ -29,8 +29,13 @@ module "ecs" {
   ecs_task_policy_arns = []
   ecs_cpu_architecture = "X86_64"
   # lb
-  lb_healthcheck_path  = "/actuator/health"
-  lb_delete_protection = false
+  lb_healthcheck_interval            = 30
+  lb_healthcheck_path                = "/actuator/health"
+  lb_healthcheck_timeout             = 3
+  lb_healthcheck_healthy_threshold   = 2
+  lb_healthcheck_unhealthy_threshold = 5
+  lb_healthcheck_matcher             = "200-204"
+  lb_delete_protection               = false
   # network
   vpc_id             = module.network.vpc_id
   public_subnet_ids  = module.network.public_subnet_ids
