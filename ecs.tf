@@ -3,7 +3,7 @@ resource "aws_ecs_cluster" "this" {
 }
 
 resource "aws_ecs_task_definition" "this" {
-  family                   = "${var.prefix}-ssr"
+  family                   = "${var.prefix}-backend"
   cpu                      = 256
   memory                   = 512
   network_mode             = "awsvpc"
@@ -18,7 +18,7 @@ resource "aws_ecs_task_definition" "this" {
 
   container_definitions = jsonencode([
     {
-      "name" : "ssr",
+      "name" : "backend",
       "image" : var.ecs_container_image,
       "cpu" : 0,
       "memory" : 512,
@@ -58,7 +58,7 @@ resource "aws_ecs_service" "this" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.this.arn
-    container_name   = "ssr"
+    container_name   = "backend"
     container_port   = var.ecs_container_port
   }
 

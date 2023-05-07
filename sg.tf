@@ -1,10 +1,10 @@
 resource "aws_security_group" "ecs" {
-  name        = "${var.prefix}-ssr-ecs-sg"
-  description = "SSR ECS"
+  name        = "${var.prefix}-backend-ecs-sg"
+  description = "Backend ECS"
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "${var.prefix}-ssr-ecs-sg"
+    Name = "${var.prefix}-backend-ecs-sg"
   }
 }
 
@@ -27,12 +27,12 @@ resource "aws_security_group_rule" "ecs_egress" {
 }
 
 resource "aws_security_group" "alb" {
-  name        = "${var.prefix}-ssr-alb-sg"
-  description = "SSR ALB"
+  name        = "${var.prefix}-backend-alb-sg"
+  description = "Backend ALB"
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "${var.prefix}-ssr-alb-sg"
+    Name = "${var.prefix}-backend-alb-sg"
   }
 }
 
