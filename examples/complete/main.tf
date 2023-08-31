@@ -1,7 +1,3 @@
-data "aws_ecr_repository" "this" {
-  name = "spring-boot"
-}
-
 module "network" {
   source = "git@github.com:ccscshq/terraform-aws-network.git?ref=v0.1.0"
 
@@ -20,14 +16,16 @@ module "ecs" {
   hosted_zone_domain = "example.com"
   api_domain         = "api.example.com"
   # ecs
-  ecs_cluster_name     = "ccscshq"
-  ecs_service_name     = "api"
-  ecs_container_image  = "${data.aws_ecr_repository.this.repository_url}:latest"
-  ecs_container_port   = 8080
-  ecs_desired_count    = 2
-  ecs_environment      = []
-  ecs_task_policy_arns = []
-  ecs_cpu_architecture = "X86_64"
+  ecs_cluster_name             = "ccscshq"
+  ecs_service_name             = "api"
+  ecs_container_image          = "nginx:latest"
+  ecs_container_port           = 8080
+  ecs_desired_count            = 1
+  ecs_autoscaling_max_capacity = 2
+  ecs_autoscaling_min_capacity = 1
+  ecs_environment              = []
+  ecs_task_policy_arns         = []
+  ecs_cpu_architecture         = "X86_64"
   # lb
   lb_healthcheck_interval            = 30
   lb_healthcheck_path                = "/actuator/health"
