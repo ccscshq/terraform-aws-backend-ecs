@@ -54,6 +54,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_domain"></a> [api\_domain](#input\_api\_domain) | Domain name to use for the web API. | `string` | n/a | yes |
+| <a name="input_ecs_autoscaling_max_capacity"></a> [ecs\_autoscaling\_max\_capacity](#input\_ecs\_autoscaling\_max\_capacity) | Max capacity of the scalable target. | `number` | `2` | no |
+| <a name="input_ecs_autoscaling_min_capacity"></a> [ecs\_autoscaling\_min\_capacity](#input\_ecs\_autoscaling\_min\_capacity) | Min capacity of the scalable target. | `number` | `1` | no |
 | <a name="input_ecs_cluster_name"></a> [ecs\_cluster\_name](#input\_ecs\_cluster\_name) | Name of ECS cluster. | `string` | n/a | yes |
 | <a name="input_ecs_container_image"></a> [ecs\_container\_image](#input\_ecs\_container\_image) | URL of container image. | `string` | n/a | yes |
 | <a name="input_ecs_container_port"></a> [ecs\_container\_port](#input\_ecs\_container\_port) | Port number of container. | `number` | n/a | yes |

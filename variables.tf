@@ -35,6 +35,16 @@ variable "ecs_desired_count" {
   type        = number
   default     = 1
 }
+variable "ecs_autoscaling_min_capacity" {
+  description = "Min capacity of the scalable target."
+  type        = number
+  default     = 1
+}
+variable "ecs_autoscaling_max_capacity" {
+  description = "Max capacity of the scalable target."
+  type        = number
+  default     = 2
+}
 variable "ecs_environment" {
   description = "Environment variables."
   type        = set(map(string))
