@@ -14,6 +14,36 @@ resource "aws_iam_role" "task" {
   })
 }
 
+resource "aws_iam_policy" "ecs_exec" {
+  count = var.enable_ecs_exec
+
+  name = "${var.prefix}-ecs-exec-role"
+  policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "ssmmessages:CreateControlChannel",
+          "ssmmessages:CreateDataChannel",
+          "ssmmessages:OpenControlChannel",
+          "ssmmessages:OpenDataChannel",
+        ]
+        "Resource" : [
+          "*",
+        ]
+      },
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ecs_exec" {
+  count = var.enable_ecs_exec
+
+  policy_arn = aws_iam_policy.ecs_exec[0].arn
+  role       = aws_iam_role.task.name
+}
+
 resource "aws_iam_role" "task_execution" {
   name = "${var.prefix}-ecs-task-execution-role"
   assume_role_policy = jsonencode({
