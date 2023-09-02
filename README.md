@@ -64,6 +64,7 @@ No modules.
 | <a name="input_ecs_environment"></a> [ecs\_environment](#input\_ecs\_environment) | Environment variables. | `set(map(string))` | `[]` | no |
 | <a name="input_ecs_service_name"></a> [ecs\_service\_name](#input\_ecs\_service\_name) | Name of ECS service. | `string` | n/a | yes |
 | <a name="input_ecs_task_policy_arns"></a> [ecs\_task\_policy\_arns](#input\_ecs\_task\_policy\_arns) | IAM policy arns for ecs task role. | `set(string)` | `[]` | no |
+| <a name="input_enable_ecs_exec"></a> [enable\_ecs\_exec](#input\_enable\_ecs\_exec) | Whether to enable ECS Exec. | `bool` | `false` | no |
 | <a name="input_hosted_zone_domain"></a> [hosted\_zone\_domain](#input\_hosted\_zone\_domain) | Domain name to use for the Route53 hosted zone. | `string` | n/a | yes |
 | <a name="input_lb_delete_protection"></a> [lb\_delete\_protection](#input\_lb\_delete\_protection) | ALB delete protection. | `bool` | `true` | no |
 | <a name="input_lb_healthcheck_healthy_threshold"></a> [lb\_healthcheck\_healthy\_threshold](#input\_lb\_healthcheck\_healthy\_threshold) | Number of consecutive health check successes required before considering a target healthy. The range is 2-10. | `number` | `2` | no |
@@ -79,4 +80,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ecs_cluster_name"></a> [ecs\_cluster\_name](#output\_ecs\_cluster\_name) | n/a |
+| <a name="output_ecs_service_name"></a> [ecs\_service\_name](#output\_ecs\_service\_name) | n/a |

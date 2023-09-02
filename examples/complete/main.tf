@@ -26,6 +26,7 @@ module "ecs" {
   ecs_environment              = []
   ecs_task_policy_arns         = []
   ecs_cpu_architecture         = "X86_64"
+  enable_ecs_exec              = false
   # lb
   lb_healthcheck_interval            = 30
   lb_healthcheck_path                = "/actuator/health"
