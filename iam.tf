@@ -15,7 +15,7 @@ resource "aws_iam_role" "task" {
 }
 
 resource "aws_iam_policy" "ecs_exec" {
-  count = var.enable_ecs_exec
+  count = var.enable_ecs_exec ? 1 : 0
 
   name = "${var.prefix}-ecs-exec-role"
   policy = jsonencode({
@@ -38,7 +38,7 @@ resource "aws_iam_policy" "ecs_exec" {
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_exec" {
-  count = var.enable_ecs_exec
+  count = var.enable_ecs_exec ? 1 : 0
 
   policy_arn = aws_iam_policy.ecs_exec[0].arn
   role       = aws_iam_role.task.name
