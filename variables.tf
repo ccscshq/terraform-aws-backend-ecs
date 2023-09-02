@@ -65,6 +65,11 @@ variable "ecs_cpu_architecture" {
     error_message = "The only possible value for ECS CPU Archtecture is X86_64 or ARM64."
   }
 }
+variable "enable_ecs_exec" {
+  description = "Whether to enable ECS Exec."
+  type        = bool
+  default     = false
+}
 
 # lb
 variable "lb_healthcheck_interval" {
