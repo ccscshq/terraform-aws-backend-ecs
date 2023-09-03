@@ -38,6 +38,9 @@ resource "aws_ecs_task_definition" "this" {
           "awslogs-stream-prefix" : "${var.ecs_service_name}"
         }
       },
+      "linuxParameters" : {
+        "initProcessEnabled" : true
+      },
     }
   ])
 }
